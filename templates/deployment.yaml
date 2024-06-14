@@ -43,6 +43,14 @@ spec:
             {{- if .Values.envs }}
             {{- toYaml .Values.envs | nindent 12 }}
             {{- end }}
+            {{- $self := . -}}
+            {{- range .Values.secrets }}
+            - name: {{ regexSplit ":" . -1 | first }}
+              valueFrom:
+                secretKeyRef:
+                  name: {{ include "pyhchart.fullname" $self }}
+                  key: {{ regexSplit ":" . -1 | first }}
+            {{- end }}
           ports:
             - name: http
               containerPort: {{ .Values.service.port }}
