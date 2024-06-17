@@ -44,12 +44,12 @@ spec:
             {{- toYaml .Values.envs | nindent 12 }}
             {{- end }}
             {{- $self := . -}}
-            {{- range .Values.secrets }}
-            - name: {{ regexSplit ":" . -1 | first }}
+            {{- range $item := .Values.secrets }}
+            - name: {{ $item.name }}
               valueFrom:
                 secretKeyRef:
                   name: {{ include "pyhchart.fullname" $self }}
-                  key: {{ regexSplit ":" . -1 | first }}
+                  key: {{ $item.name }}
             {{- end }}
           ports:
             - name: http
