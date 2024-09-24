@@ -7,6 +7,12 @@
 
 ## Changelog
 
+### 0.2.2 
+Set container name for deployment.
+
+### 0.2.1
+Enhance secrets support.
+
 ### 0.2.0
 Add support for secret values.
 
