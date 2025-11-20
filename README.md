@@ -7,6 +7,10 @@
 
 ## Changelog
 
+### 0.3.0
+Set rolling update strategy, pod distruption budget and replicaCount to 3 for production environments.
+For Sandbox and Development environments we must set replicaCount in values.yaml to 1 and pdb.enabled to false. 
+
 ### 0.2.2 
 Set container name for deployment.
 

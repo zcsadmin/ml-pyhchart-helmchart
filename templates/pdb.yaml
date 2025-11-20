@@ -1,0 +1,12 @@
+{{- if .Values.pdb.enabled }}
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: {{ include "pyhchart.fullname" . }}-pdb
+  namespace: {{ include "common.names.namespace" . | quote }}
+spec:
+  minAvailable: {{ .Values.pdb.minAvailable | default 1 }}
+  selector:
+    matchLabels:
+      {{- include "pyhchart.selectorLabels" . | nindent 6 }}
+{{- end }}

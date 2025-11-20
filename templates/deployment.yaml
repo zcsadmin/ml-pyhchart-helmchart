@@ -9,6 +9,11 @@ spec:
   {{- if not .Values.autoscaling.enabled }}
   replicas: {{ .Values.replicaCount }}
   {{- end }}
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: {{ .Values.rollingUpdate.maxUnavailable | default 1 }}
+      maxSurge: {{ .Values.rollingUpdate.maxSurge | default 1 }}
   selector:
     matchLabels:
       {{- include "pyhchart.selectorLabels" . | nindent 6 }}
