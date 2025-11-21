@@ -5,7 +5,7 @@ metadata:
   name: {{ include "pyhchart.fullname" . }}-pdb
   namespace: {{ include "common.names.namespace" . | quote }}
 spec:
-  minAvailable: {{ .Values.pdb.minAvailable | default 1 }}
+  minAvailable: {{ .Values.pdb.minAvailable | default 2 }}
   selector:
     matchLabels:
       {{- include "pyhchart.selectorLabels" . | nindent 6 }}
