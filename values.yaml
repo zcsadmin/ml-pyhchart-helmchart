@@ -4,6 +4,18 @@
 
 replicaCount: 1
 
+# https://www.baeldung.com/ops/deployment-rollout-kubernetes
+# https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#rolling-update-deployment
+rollingUpdate:
+  maxUnavailable: 25%
+  maxSurge: 25%
+
+# https://www.baeldung.com/ops/kubernetes-pod-disruption-budget
+# https://kubernetes.io/docs/tasks/run-application/configure-pdb/
+pdb:
+  enabled: true
+  minAvailable: 1
+
 image:
   repository: 
   pullPolicy: Always
