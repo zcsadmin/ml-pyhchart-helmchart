@@ -23,6 +23,8 @@ jobs:
         uses: google-github-actions/auth@v2
         with:
           token_format: access_token
+          # Only the access token is used: no credentials file in the workspace (it ended up in the package)
+          create_credentials_file: false
           workload_identity_provider: projects/51853309262/locations/global/workloadIdentityPools/my-pool/providers/my-provider
           service_account: github-actions-sa@ai-accounting-405809.iam.gserviceaccount.com
           access_token_lifetime: 300s
