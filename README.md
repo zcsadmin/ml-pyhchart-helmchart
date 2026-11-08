@@ -6,6 +6,10 @@
 
 ## Changelog
 
+### 0.3.4
+
+Exclude the CI credential files (`gha-creds-*.json`) and `.github/` from the package; the authentication step no longer writes a credentials file.
+
 ### 0.3.3
 
 Set rolling update strategy, pod disruption budget and replicaCount to 1.

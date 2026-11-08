@@ -21,3 +21,6 @@
 .idea/
 *.tmproj
 .vscode/
+# Credentials written by google-github-actions/auth in the workspace, and the CI itself
+gha-creds-*.json
+.github/
