@@ -6,6 +6,10 @@
 
 ## Changelog
 
+### 0.3.5
+
+Pods are restarted when the secrets change (`checksum/secret` annotation): they read the secrets as environment variables only at start. The first upgrade to this version restarts the pods once.
+
 ### 0.3.4
 
 Exclude the CI credential files (`gha-creds-*.json`) and `.github/` from the package; the authentication step no longer writes a credentials file.
